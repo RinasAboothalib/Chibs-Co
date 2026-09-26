@@ -26,6 +26,17 @@ export interface GiftMoment {
   icon: string;
 }
 
+// Bundled image assets via Vite ES imports
+import logoImg from '../assets/images/chibs_logo_badge_1790424045068.jpg';
+import heroImg from '../assets/images/hero_sweet_chibis_1790422314987.jpg';
+import couplesImg from '../assets/images/chibi_couples_family_1790422327832.jpg';
+import artistStudioImg from '../assets/images/chibi_artist_studio_1790422338113.jpg';
+import workspaceImg from '../assets/images/chibi_desk_workspace_1790422349719.jpg';
+import giftBoxImg from '../assets/images/chibi_gift_arrangement_1790422361236.jpg';
+import workshopImg from '../assets/images/chibi_creative_workshop_1790422377531.jpg';
+import petCompanionImg from '../assets/images/chibi_pet_companion_1790422390860.jpg';
+import familyPortraitImg from '../assets/images/chibi_family_portrait_1790422402697.jpg';
+
 export const BRAND_CONTACTS = {
   name: 'CHIBS & CO.',
   tagline: 'Hand-painted wooden dolls, made with love.',
@@ -37,20 +48,20 @@ export const BRAND_CONTACTS = {
   email: 'chibicuegallery@gmail.com',
   emailUrl: 'mailto:chibicuegallery@gmail.com',
   callUrl: 'tel:+94767703581',
-  logo: '/src/assets/images/chibs_logo_badge_1790424045068.jpg',
+  logo: logoImg,
 };
 
 // Image assets generated for the brand
 export const IMAGES = {
-  logo: '/src/assets/images/chibs_logo_badge_1790424045068.jpg',
-  hero: '/src/assets/images/hero_sweet_chibis_1790422314987.jpg',
-  couples: '/src/assets/images/chibi_couples_family_1790422327832.jpg',
-  artistStudio: '/src/assets/images/chibi_artist_studio_1790422338113.jpg',
-  workspace: '/src/assets/images/chibi_desk_workspace_1790422349719.jpg',
-  giftBox: '/src/assets/images/chibi_gift_arrangement_1790422361236.jpg',
-  workshop: '/src/assets/images/chibi_creative_workshop_1790422377531.jpg',
-  petCompanion: '/src/assets/images/chibi_pet_companion_1790422390860.jpg',
-  familyPortrait: '/src/assets/images/chibi_family_portrait_1790422402697.jpg',
+  logo: logoImg,
+  hero: heroImg,
+  couples: couplesImg,
+  artistStudio: artistStudioImg,
+  workspace: workspaceImg,
+  giftBox: giftBoxImg,
+  workshop: workshopImg,
+  petCompanion: petCompanionImg,
+  familyPortrait: familyPortraitImg,
 };
 
 export const CREATIONS_DATA: CreationItem[] = [

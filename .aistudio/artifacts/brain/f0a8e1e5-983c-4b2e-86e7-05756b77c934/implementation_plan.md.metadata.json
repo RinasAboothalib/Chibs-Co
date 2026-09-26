@@ -1,0 +1,6 @@
+{
+  "summary":  "Fix production image loading issue by replacing raw `/src/assets/` string paths with Vite ES module asset imports and public asset mirroring.",
+  "updatedAt":  "2026-09-26T13:27:14.022355963Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
