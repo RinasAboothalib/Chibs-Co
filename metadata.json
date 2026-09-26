@@ -1,0 +1,6 @@
+{
+  "name": "CHIBS & CO. — Hand-Painted Wooden Dolls",
+  "description": "Artisanal hand-painted wooden dolls and personalized Sweet Chibis crafted as meaningful keepsakes, bespoke gifts, and charming workspace companions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
