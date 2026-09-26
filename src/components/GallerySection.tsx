@@ -48,51 +48,44 @@ export const GallerySection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Editorial Masonry Grid with Staggered Scroll Animation */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {GALLERY_ITEMS.map((item, idx) => {
-            const isWide = item.aspect === 'landscape' && idx % 3 === 0;
-            const isTall = item.aspect === 'portrait';
+        {/* Gallery Grid with Matching Equal Sizes */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {GALLERY_ITEMS.map((item, idx) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: (idx % 3) * 0.08 }}
+              whileHover={{ y: -4 }}
+              onClick={() => openLightbox(idx)}
+              className="group relative overflow-hidden rounded-2xl bg-[#EAE2D7] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 aspect-[4/3] w-full"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-500 ease-out"
+                loading="lazy"
+              />
 
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 24, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: (idx % 4) * 0.08 }}
-                whileHover={{ y: -3 }}
-                onClick={() => openLightbox(idx)}
-                className={`group relative overflow-hidden rounded-2xl bg-[#EAE2D7] cursor-pointer shadow-xs hover:shadow-lg transition-all duration-300 ${
-                  isWide ? 'col-span-2 aspect-[16/9]' : isTall ? 'aspect-[3/4]' : 'aspect-square'
-                }`}
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500 ease-out"
-                  loading="lazy"
-                />
-
-                {/* Subtle dark hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6 text-white">
-                  <div className="text-[11px] uppercase tracking-wider text-[#E8A598] font-medium mb-1">
-                    {item.category}
-                  </div>
-                  <h4 className="font-serif text-base sm:text-lg font-medium text-white mb-1">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-[#FAF7F2]/80 font-light line-clamp-1">
-                    {item.subtitle}
-                  </p>
-                  <div className="mt-3 flex items-center gap-1.5 text-[11px] text-[#FAF7F2] font-medium">
-                    <Maximize2 className="w-3.5 h-3.5" />
-                    <span>View Photo</span>
-                  </div>
+              {/* Subtle dark hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 sm:p-6 text-white">
+                <div className="text-[11px] uppercase tracking-wider text-[#E8A598] font-medium mb-1">
+                  {item.category}
                 </div>
-              </motion.div>
-            );
-          })}
+                <h4 className="font-serif text-base sm:text-lg font-medium text-white mb-1 leading-snug">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-[#FAF7F2]/80 font-light line-clamp-1">
+                  {item.subtitle}
+                </p>
+                <div className="mt-3 flex items-center gap-1.5 text-[11px] text-[#FAF7F2] font-medium">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                  <span>View Photo</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 

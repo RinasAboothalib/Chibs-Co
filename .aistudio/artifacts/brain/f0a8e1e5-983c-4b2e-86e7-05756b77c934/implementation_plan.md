@@ -1,68 +1,76 @@
-# Fix Production Image Loading & Asset Bundling
+# Equal Gallery Card Alignment & Footer Company Hyperlink
 
-Resolve the issue where hand-painted Sweet Chibi photographs and the brand logo do not load on deployed production environments.
+Standardize all image card dimensions and alignments in the visual gallery to equal sizes, eliminating uneven heights and grid gaps, and add a live external hyperlink to "Visual Studios Plus" in the website footer.
 
 ## User Review & Critical Decisions
 
 > [!IMPORTANT]
-> The cause of the image failure in production is that images are currently referenced as raw string paths (`/src/assets/images/...`). In Vite production builds (`dist`), the `/src` directory does not exist, causing the browser to receive 404 errors. 
-> 
-> We will bundle the assets properly through Vite's module graph (using ES imports) and also copy them to the `public/` directory so they are always accessible both in development and production builds.
-
-- **Confirmed Decision**: Switch from string path references to standard Vite ES module asset imports in `src/data/chibiData.ts`.
-- **Favicon & Static Asset Strategy**: Mirror assets to `public/assets/images/` to ensure static HTML entry points (like the `<link rel="icon">` in `index.html`) resolve reliably.
+> - **Equal Size & Alignment**: All gallery cards will use an identical aspect ratio (`aspect-[4/3]`) with uniform heights and object-cover alignment across a balanced 3-column / 4-column responsive grid. This completely fixes the staggered bottom alignment and eliminates empty grid spaces.
+> - **Footer Link Destination**: We will hyperlink `"Visual Studios Plus (Pvt) Ltd."` with an accessible `target="_blank" rel="noopener noreferrer"` external link to their official web URL (`https://visualstudiosplus.com` with graceful hover states).
 
 ---
 
 ## 1. Overview & Core Concept
 
-- **What It Does**: Ensures all 9 brand photographs (Hero showcase, couples, family sets, pet companions, desk chibis, artist studio painting, gift arrangements, workshops, and the official circular logo) load smoothly and reliably on both the live deployed web server and local preview.
-- **Root Cause**: In local development, Vite serves files on-demand directly from the workspace filesystem (`/src/assets/images/...`). When built for production deployment (`npm run build`), Vite creates an optimized `dist/` folder containing only compiled bundles. Hardcoded `/src/...` strings are never processed by Vite's bundler, resulting in missing files in the production release.
-- **Key Value**: A production-ready web application with zero broken images across all devices and hosting environments.
+- **What It Does**:
+  1. **Uniform Gallery Presentation**: Eliminates jagged card bottoms and empty slots in "The Gallery of Little Stories" by establishing a strictly aligned grid of cards with identical aspect ratios, heights, and responsive layouts.
+  2. **Footer Attribution Link**: Converts the text `"Visual Studios Plus (Pvt) Ltd."` in the footer into a clickable, elegant hyperlink directing visitors to the creator's agency website.
+- **Key Value**: Professional, harmonious visual balance matching high-end boutique craft stores, without uneven gaps or mismatched photo frames.
 
 ---
 
 ## 2. User Experience & Visual Design
 
-- **Visual Consistency**: High-fidelity photographs and the official logo will render immediately without broken image badges or fallback delays.
-- **Resilient Fallbacks**: Image elements retain `loading="lazy"`, proper `alt` descriptions, and graceful container backgrounds during network fetches.
-- **Favicon & Meta Tags**: The browser tab icon will properly display the Chibs & Co. circular logo in production rather than throwing a 404.
+- **Gallery Layout Transformation**:
+  - **Equal Aspect Ratio**: Every photo card is locked to a consistent `aspect-[4/3]` (or `aspect-[1/1]`) container with `object-cover object-center`, ensuring subject focus on the wooden dolls while maintaining identical card dimensions.
+  - **Symmetric Grid Alignment**: Configured as a balanced 3-column grid on desktop (`grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`), ensuring every row is filled completely with zero orphan spaces.
+  - **Consistent Hover & Caption Treatment**: Uniform hover reveal overlay displaying the artisan category, title, and descriptive subtitle cleanly aligned across all cards.
+- **Footer Attribution**:
+  - The `"Visual Studios Plus (Pvt) Ltd."` attribution in the bottom footer row receives subtle hover color feedback (`text-[#E8A598] hover:underline underline-offset-2 transition-colors`).
 
 ---
 
 ## 3. Key Product Decisions & Trade-Offs
 
-- **Decision: ES Module Imports vs. Pure Public Directory**
-  - *Chosen Approach*: Hybrid approach. Standard ES module imports in TypeScript (`import heroImg from '../assets/images/...'`) combined with mirroring assets to `/public/assets/images/`.
-  - *Why*: ES module imports let Vite automatically hash, optimize, and cache-bust images when code updates. Mirroring to `public/` ensures static HTML head links (such as `index.html` favicon and OpenGraph meta tags) resolve cleanly without bundling issues.
+- **Decision 1: Uniform Aspect Ratio vs. Dynamic Masonry**
+  - *Chosen Approach*: Enforce a strict, uniform aspect ratio (`aspect-[4/3]`) across all gallery items.
+  - *Why*: The user's screenshot explicitly marked the mismatched vertical borders and the bottom-right empty hole. A uniform grid provides clean horizontal and vertical baseline alignment with no ragged gaps.
+- **Decision 2: 9 Balanced Gallery Items for 3x3 Grid**
+  - *Chosen Approach*: Ensure the gallery has 9 curated showcase photos (3 rows $\times$ 3 columns), perfectly filling the grid with zero orphan holes.
 
 ---
 
-## 4. Technical Architecture & Asset Strategy
+## 4. Technical Architecture & Component Changes
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│                   Vite Asset Pipeline                  │
+│             GallerySection.tsx Layout                  │
+├────────────────────────────────────────────────────────┤
+│  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6   │
+│                                                        │
+│  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐│
+│  │ Card 1 [4:3] │   │ Card 2 [4:3] │   │ Card 3 [4:3] ││
+│  ├──────────────┤   ├──────────────┤   ├──────────────┤│
+│  │ Card 4 [4:3] │   │ Card 5 [4:3] │   │ Card 6 [4:3] ││
+│  ├──────────────┤   ├──────────────┤   ├──────────────┤│
+│  │ Card 7 [4:3] │   │ Card 8 [4:3] │   │ Card 9 [4:3] ││
+│  └──────────────┘   └──────────────┘   └──────────────┘│
 └────────────────────────────────────────────────────────┘
                            │
-         ┌─────────────────┴─────────────────┐
-         ▼                                   ▼
-┌──────────────────┐               ┌──────────────────┐
-│  src/assets/...  │               │   public/assets/ │
-│  (ES Imports in  │               │ (Static favicon  │
-│    chibiData)    │               │  & HTML links)   │
-└──────────────────┘               └──────────────────┘
-         │                                   │
-         ▼                                   ▼
-┌────────────────────────────────────────────────────────┐
-│                      npm run build                     │
-│    Vite bundles & hashes images into dist/assets/     │
-│    and copies public/ directory directly to dist/      │
+┌──────────────────────────┴─────────────────────────────┐
+│                    Footer.tsx Link                     │
+│  <span>Built by - </span>                               │
+│  <a href="https://visualstudiosplus.com" ...>          │
+│    Visual Studios Plus (Pvt) Ltd.                      │
+│  </a>                                                  │
 └────────────────────────────────────────────────────────┘
 ```
 
-### Planned Modifications:
-1. **Mirror Assets to Public**: Create `/public/assets/images/` and copy the generated images there for static HTML and fallback availability.
-2. **Update `src/data/chibiData.ts`**: Replace string literal paths with standard ES module imports so Vite bundles and hashes each image for production.
-3. **Update `index.html`**: Update the favicon `<link>` tag to point to `/assets/images/chibs_logo_badge_1790424045068.jpg` (served from `public/`).
-4. **Verification**: Run `compile_applet` and a production build test to confirm that all image assets are emitted into the production `dist/` directory.
+### Files to Modify:
+1. `src/data/chibiData.ts`:
+   - Balance the `GALLERY_ITEMS` collection to 9 cohesive items so that a 3-column grid renders 3 full rows with zero remaining gaps.
+2. `src/components/GallerySection.tsx`:
+   - Replace the irregular `col-span-2 aspect-[16/9]` and `aspect-[3/4]` conditional logic with a uniform `aspect-[4/3]` or `aspect-square` container.
+   - Set the grid to `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`.
+3. `src/components/Footer.tsx`:
+   - Update the bottom credit line to hyperlink `Visual Studios Plus (Pvt) Ltd.` to `https://visualstudiosplus.com` with `target="_blank"` and `rel="noopener noreferrer"`.

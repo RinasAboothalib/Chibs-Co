@@ -134,8 +134,16 @@ export const Footer: React.FC = () => {
           <div>
             &copy; 2026 Chibs &amp; Co. All rights reserved.
           </div>
-          <div className="flex items-center gap-1 text-[#718096]">
-            <span>Built by - Visual Studios Plus (Pvt) Ltd.</span>
+          <div className="flex items-center gap-1.5 text-[#718096]">
+            <span>Built by -</span>
+            <a
+              href="https://visualstudiosplus.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#A0AEC0] hover:text-[#E8A598] transition-colors underline underline-offset-2 decoration-[#718096]/50 hover:decoration-[#E8A598]"
+            >
+              Visual Studios Plus (Pvt) Ltd.
+            </a>
           </div>
         </div>
       </div>

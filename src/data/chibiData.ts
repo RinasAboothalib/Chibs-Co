@@ -192,6 +192,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     image: IMAGES.workshop,
     aspect: 'landscape',
   },
+  {
+    id: 'gal-9',
+    title: 'Handcrafted Artisan Seal',
+    subtitle: 'The authentic maker mark pressed onto every keepsake creation',
+    category: 'Authenticity',
+    image: IMAGES.logo,
+    aspect: 'square',
+  },
 ];
 
 export const GIFT_MOMENTS: GiftMoment[] = [
