@@ -2,23 +2,27 @@ import React from 'react';
 import { Instagram, MessageCircle, Mail, Phone, Heart } from 'lucide-react';
 import { BRAND_CONTACTS } from '../data/chibiData';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate?: (page: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const footerLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About', href: '#about' },
-    { label: 'Creations', href: '#creations' },
-    { label: 'Customization', href: '#customization' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Events & Camps', href: '#events' },
-    { label: 'Contact', href: '#contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About & Story' },
+    { id: 'creations', label: 'Creations Catalog' },
+    { id: 'customization', label: 'Custom Builder' },
+    { id: 'gallery', label: 'Visual Gallery' },
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'contact', label: 'Contact & Orders' },
   ];
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+  const handleLinkClick = (pageId: string) => {
+    if (onNavigate) {
+      onNavigate(pageId);
+    } else {
+      window.location.hash = `#${pageId}`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -53,7 +57,7 @@ export const Footer: React.FC = () => {
                 href={BRAND_CONTACTS.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D2235] text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D2235] text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -62,14 +66,14 @@ export const Footer: React.FC = () => {
                 href={BRAND_CONTACTS.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
               </a>
               <a
                 href={BRAND_CONTACTS.emailUrl}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D2235] text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D2235] text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
@@ -77,21 +81,20 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Page Links */}
           <div className="lg:col-span-4">
             <h4 className="text-xs font-semibold uppercase tracking-widest text-[#E8A598] mb-4">
-              Explore
+              Explore Pages
             </h4>
             <div className="grid grid-cols-2 gap-2 text-xs sm:text-sm text-[#A0AEC0]">
               {footerLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => handleScroll(e, link.href)}
-                  className="hover:text-white transition-colors py-1"
+                <button
+                  key={link.id}
+                  onClick={() => handleLinkClick(link.id)}
+                  className="hover:text-white transition-colors py-1 text-left cursor-pointer"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
             </div>
           </div>
@@ -129,7 +132,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar with Hyperlink for Visual Studios Plus */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#718096] gap-3">
           <div>
             &copy; 2026 Chibs &amp; Co. All rights reserved.
@@ -140,7 +143,7 @@ export const Footer: React.FC = () => {
               href="https://visualstudiosplus.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#A0AEC0] hover:text-[#E8A598] transition-colors underline underline-offset-2 decoration-[#718096]/50 hover:decoration-[#E8A598]"
+              className="font-medium text-[#FAF7F2] hover:text-[#E8A598] transition-colors underline underline-offset-2 decoration-[#E8A598]/60 hover:decoration-[#E8A598] cursor-pointer"
             >
               Visual Studios Plus (Pvt) Ltd.
             </a>

@@ -3,7 +3,11 @@ import { motion } from 'motion/react';
 import { ArrowUpRight, Instagram, MessageCircle } from 'lucide-react';
 import { BRAND_CONTACTS, IMAGES } from '../data/chibiData';
 
-export const FinalCta: React.FC = () => {
+interface FinalCtaProps {
+  onCustomClick?: () => void;
+}
+
+export const FinalCta: React.FC<FinalCtaProps> = ({ onCustomClick }) => {
   return (
     <section className="relative py-28 sm:py-36 bg-[#101B2B] text-[#FAF7F2] overflow-hidden">
       {/* Background with subtle photo texture and dark warm vignette */}
@@ -42,17 +46,29 @@ export const FinalCta: React.FC = () => {
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
-          <motion.a
-            whileHover={{ scale: 1.03, translateY: -2 }}
-            whileTap={{ scale: 0.98 }}
-            href={BRAND_CONTACTS.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 bg-[#7D2235] hover:bg-[#68192A] text-[#FAF7F2] font-medium text-sm sm:text-base rounded-full shadow-lg transition-colors flex items-center justify-center gap-2 border border-[#8E2F43] cursor-pointer"
-          >
-            <MessageCircle className="w-5 h-5 fill-white" />
-            <span>Create My Chibi</span>
-          </motion.a>
+          {onCustomClick ? (
+            <motion.button
+              whileHover={{ scale: 1.03, translateY: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onCustomClick}
+              className="w-full sm:w-auto px-8 py-4 bg-[#7D2235] hover:bg-[#68192A] text-[#FAF7F2] font-medium text-sm sm:text-base rounded-full shadow-lg transition-colors flex items-center justify-center gap-2 border border-[#8E2F43] cursor-pointer"
+            >
+              <MessageCircle className="w-5 h-5 fill-white" />
+              <span>Create My Chibi</span>
+            </motion.button>
+          ) : (
+            <motion.a
+              whileHover={{ scale: 1.03, translateY: -2 }}
+              whileTap={{ scale: 0.98 }}
+              href={BRAND_CONTACTS.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-4 bg-[#7D2235] hover:bg-[#68192A] text-[#FAF7F2] font-medium text-sm sm:text-base rounded-full shadow-lg transition-colors flex items-center justify-center gap-2 border border-[#8E2F43] cursor-pointer"
+            >
+              <MessageCircle className="w-5 h-5 fill-white" />
+              <span>Create My Chibi</span>
+            </motion.a>
+          )}
 
           <motion.a
             whileHover={{ scale: 1.03, translateY: -2 }}
