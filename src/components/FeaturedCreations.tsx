@@ -8,11 +8,11 @@ export const FeaturedCreations: React.FC = () => {
 
   const filterTabs = [
     { id: 'all', label: 'All Collections' },
+    { id: 'weddings', label: 'Weddings' },
+    { id: 'graduation', label: 'Graduation' },
     { id: 'couples', label: 'Couples' },
     { id: 'families', label: 'Families' },
     { id: 'pets', label: 'Pets' },
-    { id: 'personalized', label: 'Personalized' },
-    { id: 'desk', label: 'Work Desk' },
     { id: 'gifts', label: 'Gift Sets' },
   ];
 

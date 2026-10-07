@@ -17,12 +17,12 @@ export const CreationsPage: React.FC<CreationsPageProps> = ({
 
   const categories = [
     { id: 'all', label: 'All Collections' },
-    { id: 'couples', label: 'Couples & Weddings' },
+    { id: 'weddings', label: 'Weddings' },
+    { id: 'graduation', label: 'Graduation' },
+    { id: 'couples', label: 'Couples' },
     { id: 'families', label: 'Family Sets' },
     { id: 'pets', label: 'Pet Companions' },
-    { id: 'desk', label: 'Work Desk Chibis' },
     { id: 'gifts', label: 'Gift Sets' },
-    { id: 'personalized', label: 'Solo Characters' },
   ];
 
   const filteredCreations =

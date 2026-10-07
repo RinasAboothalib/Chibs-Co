@@ -1,7 +1,7 @@
 export interface CreationItem {
   id: string;
   name: string;
-  category: 'couples' | 'families' | 'pets' | 'personalized' | 'desk' | 'gifts';
+  category: 'couples' | 'weddings' | 'graduation' | 'families' | 'pets' | 'gifts';
   categoryLabel: string;
   description: string;
   image: string;
@@ -66,12 +66,32 @@ export const IMAGES = {
 
 export const CREATIONS_DATA: CreationItem[] = [
   {
+    id: 'creation-wedding',
+    name: 'Weddings & Cake Topper',
+    category: 'weddings',
+    categoryLabel: 'Weddings',
+    description: 'Handcrafted bridal gown and groom suit details, lace patterns, floral bouquets, and an engraved wooden base for your wedding day and anniversary.',
+    image: IMAGES.couples,
+    badge: 'Heirloom Keepsake',
+    suggestedPrompt: 'Hello Chibs & Co.! I would love to commission a custom Wedding Sweet Chibis cake topper and keepsake set.',
+  },
+  {
+    id: 'creation-graduation',
+    name: 'Graduation Keepsake Chibi',
+    category: 'graduation',
+    categoryLabel: 'Graduation',
+    description: 'Celebrate academic achievements with hand-painted graduation gowns, university faculty sashes, mortarboard caps, and diploma scrolls on solid hardwood.',
+    image: IMAGES.workspace,
+    badge: 'Milestone Gift',
+    suggestedPrompt: 'Hi Chibs & Co.! I want to order a Graduation Sweet Chibi with customized university cap and gown.',
+  },
+  {
     id: 'creation-couple',
     name: 'Custom Couple Chibis',
     category: 'couples',
     categoryLabel: 'Couples',
     description: 'Hand-painted characters created from your story. Capturing wedding outfits, anniversaries, or everyday moments.',
-    image: IMAGES.couples,
+    image: IMAGES.hero,
     badge: 'Customizable',
     suggestedPrompt: 'Hello Chibs & Co.! I would love to order a Custom Couple Chibi set.',
   },
@@ -96,34 +116,14 @@ export const CREATIONS_DATA: CreationItem[] = [
     suggestedPrompt: 'Hello! I would love to get a custom painted Pet Chibi of my furry best friend.',
   },
   {
-    id: 'creation-desk',
-    name: 'Work Desk Chibi',
-    category: 'desk',
-    categoryLabel: 'Work Desk',
-    description: 'A little personality for your workspace. Bringing warmth, smiles, and creative energy to your daily routine.',
-    image: IMAGES.workspace,
-    badge: 'Customizable',
-    suggestedPrompt: 'Hi! I would like to order a Sweet Chibi for my work desk setup.',
-  },
-  {
     id: 'creation-gift',
-    name: 'Bespoke Keepsake Box',
+    name: 'Premium Gift Sets',
     category: 'gifts',
     categoryLabel: 'Gift Sets',
-    description: 'Delicately packaged in natural kraft shredding with botanical twine and a personalized handwritten gift note.',
+    description: 'Curate the perfect gift box for special occasions, with our premium gift boxes and add-ons',
     image: IMAGES.giftBox,
     badge: 'Gift Ready',
-    suggestedPrompt: 'Hello Chibs & Co.! I want to inquire about a personalized Gift Set for an upcoming occasion.',
-  },
-  {
-    id: 'creation-personalized',
-    name: 'Solo Character Chibi',
-    category: 'personalized',
-    categoryLabel: 'Personalized',
-    description: 'Individually detailed with specific hobbies, uniforms, favorite patterns, glasses, or signature hairstyles.',
-    image: IMAGES.artistStudio,
-    badge: 'Customizable',
-    suggestedPrompt: 'Hi Chibs & Co.! I would love to order a personalized Solo Chibi for a friend.',
+    suggestedPrompt: 'Hello Chibs & Co.! I would like to curate a premium gift box with custom Sweet Chibis and add-ons.',
   },
 ];
 
@@ -239,41 +239,48 @@ export const GIFT_MOMENTS: GiftMoment[] = [
     icon: 'PawPrint',
   },
   {
-    id: 'work-desk',
-    title: 'Workplace Addition',
-    description: 'A pocket-sized companion to sit next to your monitor, bringing a smile on busy workdays.',
-    popularFor: 'Colleagues & Creators',
-    icon: 'Briefcase',
+    id: 'graduation',
+    title: 'Graduation Milestone',
+    description: 'Celebrate degree completions and academic achievements with tailored gowns, mortarboard caps, and diploma scrolls.',
+    popularFor: 'Graduates & Proud Families',
+    icon: 'Trophy',
   },
   {
     id: 'special-moments',
-    title: 'Special Milestones',
-    description: 'Graduations, new beginnings, housewarmings, or personal achievements captured with love.',
-    popularFor: 'Milestone Celebrations',
-    icon: 'Trophy',
+    title: 'Milestone Celebrations',
+    description: 'New chapters, engagements, housewarmings, or heartfelt thank-you gifts preserved forever on hardwood.',
+    popularFor: 'Cherished Moments',
+    icon: 'Gift',
   },
 ];
 
 export const TESTIMONIALS_DATA = [
   {
     id: 't-1',
-    quote: 'The Sweet Chibis captured our wedding outfits down to the tiniest lace detail on the dress. It now sits proudly on our mantelpiece and brings back that day every time we look at it.',
-    author: '[Customer Name]',
-    occasion: 'Wedding Keepsake',
-    location: 'Custom Order',
+    quote: 'Our Sweet Chibi wedding cake toppers were the highlight of our reception! The artist captured the lace pattern on my gown and Dinuka’s navy linen suit so accurately. They now sit on our bedroom dresser as our favorite keepsake.',
+    author: 'Tharushi & Dinuka',
+    occasion: 'Weddings & Cake Topper',
+    location: 'Colombo, Sri Lanka',
   },
   {
     id: 't-2',
-    quote: 'Ordered a custom chibi of my sister and her golden retriever for her birthday. Her reaction was priceless — tears of pure joy! The craftsmanship and packaging are exceptional.',
-    author: '[Customer Name]',
-    occasion: 'Birthday & Pet Chibi',
-    location: 'Custom Order',
+    quote: 'I commissioned a graduation Sweet Chibi for my daughter’s law degree convocation, complete with her university faculty hood and mortarboard. When she opened the kraft gift box, she literally burst into tears of joy. Outstanding craftsmanship!',
+    author: 'Shenali Mendis',
+    occasion: 'Graduation Keepsake',
+    location: 'Custom Commission',
   },
   {
     id: 't-3',
-    quote: 'Having our little desk chibis by our work monitors genuinely brightens up the daily grind. The wooden texture and hand-painted finish feel so warm and genuine.',
-    author: '[Customer Name]',
-    occasion: 'Workspace Companion',
-    location: 'Custom Order',
+    quote: 'We curated a premium gift box for our 5th wooden anniversary with couple chibis and our little beagle Milo. The botanical packaging, handwritten calligraphy card, and smooth painted wood felt deeply thoughtful and heirloom-grade.',
+    author: 'Kaveesha & Liam',
+    occasion: '5th Anniversary Gift Set',
+    location: 'Overseas Delivery',
+  },
+  {
+    id: 't-4',
+    quote: 'A customized family set of 4 plus our two cats. The patience and care taken to capture my mom’s glasses and my dad’s favorite checkered shirt was unbelievable. We couldn’t be happier with our Sweet Chibis!',
+    author: 'Ruwani Fernando',
+    occasion: 'Family Portrait Set',
+    location: 'Kandy, Sri Lanka',
   },
 ];

@@ -21,12 +21,12 @@ export const TestimonialsSection: React.FC = () => {
             Made With Love. Loved By Many.
           </h2>
           <p className="text-sm sm:text-base text-[#5C6A79] font-light leading-relaxed">
-            Heartfelt reflections from patrons who commissioned Sweet Chibis for their most cherished milestones.
+            Heartfelt reflections from customers who commissioned Sweet Chibis for their most cherished milestones
           </p>
         </motion.div>
 
         {/* Testimonials Grid with Stagger */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {TESTIMONIALS_DATA.map((item, idx) => (
             <motion.div
               key={item.id}

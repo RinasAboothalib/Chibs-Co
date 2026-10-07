@@ -9,18 +9,19 @@ export const CustomizationSection: React.FC = () => {
   const [notes, setNotes] = useState('');
 
   const characterOptions = [
+    'Weddings & Cake Topper (2 Figures)',
+    'Graduation Keepsake Chibi',
     'Couple (2 Figures)',
-    'Family (3–4 Figures)',
-    'Solo Person',
-    'Person & Pet',
-    'Desk Companion',
+    'Family Set (3–4 Figures)',
+    'Person & Pet Companion',
+    'Premium Gift Set with Box',
   ];
 
   const occasionOptions = [
+    'Weddings',
+    'Graduation',
     'Anniversary',
-    'Wedding / Cake Topper',
-    'Birthday Gift',
-    'Desk / Workspace',
+    'Birthday Celebration',
     'Pet Memorial / Love',
     'Special Keepsake',
   ];
