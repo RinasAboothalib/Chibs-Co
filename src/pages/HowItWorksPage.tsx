@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PageHeader } from '../components/PageHeader';
 import { HowItWorks } from '../components/HowItWorks';
 import { GiftSection } from '../components/GiftSection';
-import { ChevronDown, HelpCircle, Package, Send, Clock, Sparkles } from 'lucide-react';
+import { ChevronDown, HelpCircle, Package, Send, Clock, ArrowRight } from 'lucide-react';
 import { IMAGES } from '../data/chibiData';
 
 interface HowItWorksPageProps {
@@ -104,8 +104,8 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
               onClick={onNavigateCustomization}
               className="inline-flex items-center gap-2 bg-[#7D2235] hover:bg-[#681C2B] text-white text-xs sm:text-sm font-medium px-6 py-3.5 rounded-full shadow-md transition-all cursor-pointer"
             >
-              <Sparkles className="w-4 h-4" />
               <span>Ready to Order? Start Customizing</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PageHeader } from '../components/PageHeader';
 import { CREATIONS_DATA, CreationItem, BRAND_CONTACTS, IMAGES } from '../data/chibiData';
 import { motion } from 'motion/react';
-import { Sparkles, MessageCircle, ArrowRight, ShieldCheck, Heart, Ruler, Box } from 'lucide-react';
+import { Paintbrush, MessageCircle, ArrowRight, ShieldCheck, Heart, Ruler, Box } from 'lucide-react';
 
 interface CreationsPageProps {
   onNavigateHome: () => void;
@@ -124,7 +124,7 @@ export const CreationsPage: React.FC<CreationsPageProps> = ({
                     title="Customize"
                     className="w-10 h-10 rounded-xl bg-[#FAF7F2] hover:bg-[#EAE2D7] text-[#101B2B] flex items-center justify-center transition-colors cursor-pointer shrink-0 border border-[#E8E1D7]"
                   >
-                    <Sparkles className="w-4 h-4 text-[#7D2235]" />
+                    <Paintbrush className="w-4 h-4 text-[#7D2235]" />
                   </button>
                 </div>
               </div>

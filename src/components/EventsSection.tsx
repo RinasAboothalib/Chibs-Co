@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, MessageCircle, Mail } from 'lucide-react';
+import { MessageCircle, Mail } from 'lucide-react';
 import { IMAGES, BRAND_CONTACTS } from '../data/chibiData';
 
 export const EventsSection: React.FC = () => {
@@ -25,8 +25,7 @@ export const EventsSection: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-6 p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
               <div>
-                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#E8A598] mb-4">
-                  <Sparkles className="w-3.5 h-3.5" />
+                <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#E8A598] mb-4 block">
                   Community &amp; Creativity
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#FAF7F2] mb-6 leading-tight text-balance">

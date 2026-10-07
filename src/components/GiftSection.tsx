@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Gift, Heart, Cake, Sparkles, Users, PawPrint, Briefcase, Trophy, ArrowUpRight } from 'lucide-react';
+import { Gift, Heart, Cake, Gem, Users, PawPrint, Briefcase, Trophy, ArrowUpRight } from 'lucide-react';
 import { GIFT_MOMENTS, GiftMoment, BRAND_CONTACTS } from '../data/chibiData';
 
 export const GiftSection: React.FC = () => {
@@ -10,8 +10,8 @@ export const GiftSection: React.FC = () => {
         return Cake;
       case 'Heart':
         return Heart;
-      case 'Sparkles':
-        return Sparkles;
+      case 'Gem':
+        return Gem;
       case 'Users':
         return Users;
       case 'PawPrint':

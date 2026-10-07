@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { MessageCircle, FileText, Image as ImageIcon, Sparkles, Gift } from 'lucide-react';
+import { MessageCircle, FileText, Image as ImageIcon, Paintbrush, Gift } from 'lucide-react';
 import { BRAND_CONTACTS } from '../data/chibiData';
 
 export const HowItWorks: React.FC = () => {
@@ -21,7 +21,7 @@ export const HowItWorks: React.FC = () => {
       step: '03',
       title: 'We Hand-Paint Your Chibi',
       description: 'Your wooden peg doll is meticulously painted with fine artist brushes, delicate layering, and sealed for lasting quality.',
-      icon: Sparkles,
+      icon: Paintbrush,
     },
     {
       step: '04',

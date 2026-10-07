@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageHeader } from '../components/PageHeader';
 import { CustomizationSection } from '../components/CustomizationSection';
-import { CheckCircle2, Clock, Camera, Sparkles } from 'lucide-react';
+import { CheckCircle2, Clock, Camera } from 'lucide-react';
 import { IMAGES } from '../data/chibiData';
 
 interface CustomizationPageProps {

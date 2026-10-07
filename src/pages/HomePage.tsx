@@ -5,7 +5,7 @@ import { FeaturedCreations } from '../components/FeaturedCreations';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FinalCta } from '../components/FinalCta';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles, Heart, Palette } from 'lucide-react';
+import { ArrowRight, Paintbrush, Heart, Palette } from 'lucide-react';
 import { IMAGES } from '../data/chibiData';
 
 interface HomePageProps {
@@ -48,7 +48,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             >
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#7D2235]/10 text-[#7D2235] flex items-center justify-center mb-6 group-hover:bg-[#7D2235] group-hover:text-white transition-colors">
-                  <Sparkles className="w-6 h-6" />
+                  <Paintbrush className="w-6 h-6" />
                 </div>
                 <h3 className="font-serif text-xl text-[#101B2B] font-medium mb-3">
                   Custom Order Studio

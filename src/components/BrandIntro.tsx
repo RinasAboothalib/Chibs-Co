@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Palette, HeartHandshake, Sparkles } from 'lucide-react';
+import { Palette, HeartHandshake, TreePine } from 'lucide-react';
 
 export const BrandIntro: React.FC = () => {
   const pillars = [
     {
-      icon: Sparkles,
+      icon: TreePine,
       iconBg: 'bg-[#101B2B]',
       iconColor: 'text-[#E8A598]',
       title: 'Smooth Solid Wood',

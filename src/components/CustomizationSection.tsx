@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, MessageCircle, Sparkles, Camera, Palette, Package } from 'lucide-react';
+import { CheckCircle2, MessageCircle, Camera, Palette, Package } from 'lucide-react';
 import { BRAND_CONTACTS } from '../data/chibiData';
 
 export const CustomizationSection: React.FC = () => {
@@ -132,9 +132,8 @@ I have reference photos ready to send over WhatsApp!`;
           transition={{ duration: 0.8 }}
           className="bg-[#FAF7F2] rounded-3xl border border-[#E4DCcf] shadow-sm p-6 sm:p-10 lg:p-12 max-w-4xl mx-auto"
         >
-          <div className="flex items-center gap-2 mb-2 text-xs uppercase tracking-widest text-[#7D2235] font-semibold">
-            <Sparkles className="w-4 h-4" />
-            <span>Interactive Custom Chibi Planner</span>
+          <div className="mb-2 text-xs uppercase tracking-widest text-[#7D2235] font-semibold font-mono">
+            Interactive Custom Chibi Planner
           </div>
           <h3 className="font-serif text-2xl sm:text-3xl text-[#101B2B] font-medium mb-3">
             Start Your Custom Order in Minutes

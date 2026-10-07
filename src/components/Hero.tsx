@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowDown, Instagram, Sparkles, Heart } from 'lucide-react';
+import { ArrowDown, Instagram, Heart } from 'lucide-react';
 import { BRAND_CONTACTS, IMAGES } from '../data/chibiData';
 
 interface HeroProps {
@@ -50,9 +50,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onCustomClick }) => 
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs sm:text-sm tracking-widest uppercase font-medium text-[#FAF7F2]/90"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#E8A598]" />
-          <span>Hand-Painted &bull; Personalized &bull; Made With Love</span>
           <Heart className="w-3.5 h-3.5 text-[#E8A598]" />
+          <span>Hand-Painted &bull; Personalized &bull; Made With Love</span>
         </motion.div>
 
         {/* Main heading */}

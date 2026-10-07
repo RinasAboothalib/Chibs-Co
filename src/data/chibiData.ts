@@ -222,7 +222,7 @@ export const GIFT_MOMENTS: GiftMoment[] = [
     title: 'Wedding & Cake Topper',
     description: 'A timeless keepsake capturing the bride and groom attire, flowers, and smiles to treasure forever.',
     popularFor: 'Newlyweds',
-    icon: 'Sparkles',
+    icon: 'Gem',
   },
   {
     id: 'friendship',
