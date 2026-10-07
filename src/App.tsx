@@ -10,6 +10,7 @@ import { ContactPage } from './pages/ContactPage';
 import { Footer } from './components/Footer';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { ScrollProgress } from './components/ScrollProgress';
+import { IMAGES } from './data/chibiData';
 
 export default function App() {
   const [activePage, setActivePage] = useState<NavPageId>('home');
@@ -48,15 +49,30 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#1E2530] font-sans flex flex-col selection:bg-[#7D2235] selection:text-[#FAF7F2] relative">
-      {/* Scroll Progress Bar at very top */}
-      <ScrollProgress />
+      {/* Dim Wooden Doll Image Background for the Full Website */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <img
+          src={IMAGES.hero}
+          alt=""
+          className="w-full h-full object-cover object-center filter blur-[1px] opacity-[0.06] mix-blend-multiply scale-105"
+        />
+        {/* Soft warm parchment vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/60 via-[#FAF7F2]/80 to-[#FAF7F2]/95" />
+      </div>
 
-      {/* Sticky Navigation Header with active page highlight */}
-      <Navbar
-        activePage={activePage}
-        onNavigate={navigateTo}
-        onOrderClick={() => navigateTo('customization')}
-      />
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Scroll Progress Bar at very top */}
+        <ScrollProgress />
+
+        {/* Sticky Navigation Header with active page highlight */}
+        <Navbar
+          activePage={activePage}
+          onNavigate={navigateTo}
+          onOrderClick={() => navigateTo('customization')}
+        />
 
       {/* Main Page Content */}
       <main className="flex-1">
@@ -101,6 +117,7 @@ export default function App() {
 
       {/* Sticky WhatsApp Contact Bar for Mobile */}
       <StickyMobileBar />
+      </div>
     </div>
   );
 }

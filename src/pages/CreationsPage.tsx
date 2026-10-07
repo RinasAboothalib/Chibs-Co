@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PageHeader } from '../components/PageHeader';
-import { CREATIONS_DATA, CreationItem, BRAND_CONTACTS } from '../data/chibiData';
+import { CREATIONS_DATA, CreationItem, BRAND_CONTACTS, IMAGES } from '../data/chibiData';
 import { motion } from 'motion/react';
 import { Sparkles, MessageCircle, ArrowRight, ShieldCheck, Heart, Ruler, Box } from 'lucide-react';
 
@@ -38,13 +38,14 @@ export const CreationsPage: React.FC<CreationsPageProps> = ({
   };
 
   return (
-    <div className="bg-[#FAF7F2] min-h-screen">
+    <div className="bg-[#FAF7F2]/90 min-h-screen">
       <PageHeader
         badge="Bespoke Catalog"
         title="Our Handcrafted Collections"
         description="Every Sweet Chibi is turned from responsibly sourced solid wood, hand-painted with organic details, and finished with a satin protective sealant."
         currentPage="Creations"
         onNavigateHome={onNavigateHome}
+        bgImage={IMAGES.hero}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

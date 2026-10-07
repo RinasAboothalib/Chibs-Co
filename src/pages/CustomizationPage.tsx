@@ -2,6 +2,7 @@ import React from 'react';
 import { PageHeader } from '../components/PageHeader';
 import { CustomizationSection } from '../components/CustomizationSection';
 import { CheckCircle2, Clock, Camera, Sparkles } from 'lucide-react';
+import { IMAGES } from '../data/chibiData';
 
 interface CustomizationPageProps {
   onNavigateHome: () => void;
@@ -9,13 +10,14 @@ interface CustomizationPageProps {
 
 export const CustomizationPage: React.FC<CustomizationPageProps> = ({ onNavigateHome }) => {
   return (
-    <div className="bg-[#FAF7F2] min-h-screen">
+    <div className="bg-[#FAF7F2]/90 min-h-screen">
       <PageHeader
         badge="Interactive Studio"
         title="Custom Order Studio"
         description="Design a personalized Sweet Chibi doll inspired by real photos, distinctive hairstyles, favorite outfits, eyeglasses, and engraved memories."
         currentPage="Customization"
         onNavigateHome={onNavigateHome}
+        bgImage={IMAGES.workspace}
       />
 
       {/* Main Interactive Customization Builder */}

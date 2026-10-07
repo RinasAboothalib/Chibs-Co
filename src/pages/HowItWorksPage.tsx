@@ -3,6 +3,7 @@ import { PageHeader } from '../components/PageHeader';
 import { HowItWorks } from '../components/HowItWorks';
 import { GiftSection } from '../components/GiftSection';
 import { ChevronDown, HelpCircle, Package, Send, Clock, Sparkles } from 'lucide-react';
+import { IMAGES } from '../data/chibiData';
 
 interface HowItWorksPageProps {
   onNavigateHome: () => void;
@@ -39,13 +40,14 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
   ];
 
   return (
-    <div className="bg-[#FAF7F2] min-h-screen">
+    <div className="bg-[#FAF7F2]/90 min-h-screen">
       <PageHeader
         badge="Crafting Journey"
         title="How It Works &amp; Gift Packaging"
         description="A simple, personal ordering journey from your favorite photo to a thoughtfully packaged wooden keepsake."
         currentPage="How It Works"
         onNavigateHome={onNavigateHome}
+        bgImage={IMAGES.giftBox}
       />
 
       {/* 4-Step Process Section */}

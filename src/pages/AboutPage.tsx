@@ -3,6 +3,7 @@ import { PageHeader } from '../components/PageHeader';
 import { StorySection } from '../components/StorySection';
 import { EventsSection } from '../components/EventsSection';
 import { Leaf, Award, Compass, Heart } from 'lucide-react';
+import { IMAGES } from '../data/chibiData';
 
 interface AboutPageProps {
   onNavigateHome: () => void;
@@ -11,13 +12,14 @@ interface AboutPageProps {
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onNavigateHome, onNavigateContact }) => {
   return (
-    <div className="bg-[#FAF7F2] min-h-screen">
+    <div className="bg-[#FAF7F2]/90 min-h-screen">
       <PageHeader
         badge="Artisan Heritage"
         title="Our Craft &amp; Story"
         description="Founded on the belief that meaningful gifts don't need to be loud — they just need to carry a piece of your heart."
         currentPage="About"
         onNavigateHome={onNavigateHome}
+        bgImage={IMAGES.artistStudio}
       />
 
       {/* Main Artisan Story Section */}

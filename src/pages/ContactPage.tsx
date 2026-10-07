@@ -2,7 +2,7 @@ import React from 'react';
 import { PageHeader } from '../components/PageHeader';
 import { ContactSection } from '../components/ContactSection';
 import { InstagramSection } from '../components/InstagramSection';
-import { BRAND_CONTACTS } from '../data/chibiData';
+import { BRAND_CONTACTS, IMAGES } from '../data/chibiData';
 import { MapPin, Clock, Truck, ShieldCheck } from 'lucide-react';
 
 interface ContactPageProps {
@@ -11,13 +11,14 @@ interface ContactPageProps {
 
 export const ContactPage: React.FC<ContactPageProps> = ({ onNavigateHome }) => {
   return (
-    <div className="bg-[#FAF7F2] min-h-screen">
+    <div className="bg-[#FAF7F2]/90 min-h-screen">
       <PageHeader
         badge="Direct Connection"
         title="Get in Touch with Our Studio"
         description="Have a question about a bespoke piece or need advice on capturing details? Reach out directly via WhatsApp, Instagram DM, or our inquiry form below."
         currentPage="Contact"
         onNavigateHome={onNavigateHome}
+        bgImage={IMAGES.workshop}
       />
 
       {/* Main Contact Section with Form & Instant WhatsApp */}
