@@ -102,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onCustomClick }) => 
           </motion.button>
         </motion.div>
 
-        {/* Instagram badge CTA */}
+        {/* Instagram icon CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -113,10 +113,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onCustomClick }) => 
             href={BRAND_CONTACTS.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-[#FAF7F2]/80 hover:text-[#FAF7F2] transition-colors py-1.5 px-4 rounded-full bg-black/25 hover:bg-black/40 backdrop-blur-sm border border-white/10"
+            aria-label="Instagram @chibs_n.co"
+            title="Follow @chibs_n.co on Instagram"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/25 hover:bg-black/45 hover:scale-110 active:scale-95 backdrop-blur-sm border border-white/15 transition-all cursor-pointer"
           >
-            <Instagram className="w-4 h-4 text-[#E8A598]" />
-            <span>Follow {BRAND_CONTACTS.instagramHandle} on Instagram</span>
+            <Instagram className="w-5 h-5 text-[#E8A598]" />
           </a>
         </motion.div>
       </div>
